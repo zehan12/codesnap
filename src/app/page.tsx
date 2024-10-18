@@ -1,9 +1,9 @@
-import Image from "next/image";
+import { ComingSoon } from "@/components/shared";
 
 export default function Home() {
   return (
-    <div>
-      APP
-    </div>
+    <main>
+      <ComingSoon />
+    </main>
   );
 }
