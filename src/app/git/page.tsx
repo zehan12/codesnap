@@ -113,7 +113,7 @@ function CommitCard({ commit, isLast }: { commit: Commit; isLast: boolean }) {
         >
             <div className="flex items-start space-x-3">
                 <Avatar className="w-8 h-8">
-                    <AvatarImage src={commit.author.avatar} alt={commit.author.name} />
+                    <AvatarImage src={commit.author.avatar} alt={commit.author.name || "User Avatar"} />
                     <AvatarFallback>{commit.author.name.charAt(0)}</AvatarFallback>
                 </Avatar>
                 <div className="flex-grow">
