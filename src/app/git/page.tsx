@@ -2,9 +2,8 @@
 
 import React, { useEffect, useState } from 'react'
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { GitCommit, GitBranch, GitPullRequest, User, Search } from "lucide-react"
+import { GitCommit, GitBranch, User } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Button } from "@/components/ui/button"
 
 interface Commit {
     sha: string
@@ -48,7 +47,7 @@ export default function GitCommitHistoryPage({ username = "zehan12", repo = "cod
                     }
                 }))
                 setCommits(formattedCommits)
-            } catch (error: any) {
+            } catch (error) {
                 setError(error?.message)
             }
         }
