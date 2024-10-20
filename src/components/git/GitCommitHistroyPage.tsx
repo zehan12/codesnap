@@ -48,7 +48,11 @@ export default function GitCommitHistoryPage({ username = "zehan12", repo = "cod
                 }))
                 setCommits(formattedCommits)
             } catch (error) {
-                setError(error?.message)
+                if (error instanceof Error) {
+                    setError(error.message);
+                } else {
+                    setError("An unknown error occurred.");
+                }
             }
         }
 
