@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react'
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { GitCommit, GitBranch, User } from "lucide-react"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import CommitCard from './CommitCard'
 
 interface Commit {
     sha: string
@@ -21,7 +21,7 @@ interface GitCommitHistoryPageProps {
     repo: string
 }
 
-export default function GitCommitHistoryPage({ username = "zehan12", repo = "codesnap" }: GitCommitHistoryPageProps) {
+export const GitCommitHistoryPage = ({ username = "zehan12", repo = "codesnap" }: GitCommitHistoryPageProps) => {
     const [commits, setCommits] = useState<Commit[]>([])
     const [error, setError] = useState<string | null>(null)
 
@@ -105,32 +105,6 @@ export default function GitCommitHistoryPage({ username = "zehan12", repo = "cod
                     </div>
                 </ScrollArea>
             </main>
-        </div>
-    )
-}
-
-function CommitCard({ commit, isLast }: { commit: Commit; isLast: boolean }) {
-    return (
-        <div
-            className={`p-4 ${isLast ? "" : "border-b border-gray-200 dark:border-gray-700"} 
-                  hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors duration-150`}
-        >
-            <div className="flex items-start space-x-3">
-                <Avatar className="w-8 h-8">
-                    <AvatarImage src={commit.author.avatar} alt={commit.author.name || "User Avatar"} />
-                    <AvatarFallback>{commit.author.name.charAt(0)}</AvatarFallback>
-                </Avatar>
-                <div className="flex-grow">
-                    <h3 className="font-medium text-gray-900 dark:text-gray-100">{commit.message.split('\n')[0]}</h3>
-                    <div className="mt-1 flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400">
-                        <span>{commit.author.name}</span>
-                        <span>committed on {commit.date}</span>
-                        <span className="font-mono bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded">
-                            {commit.sha.substring(0, 7)}
-                        </span>
-                    </div>
-                </div>
-            </div>
         </div>
     )
 }
