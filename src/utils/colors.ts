@@ -321,7 +321,7 @@ export const shiftHue = (colors: string[]): string[] => {
 
 /**
  * Converts an HSL color string to HSLA by adding an alpha value.
- * @param color - HSL color string (e.g., 'hsl(200, 50%, 50%)')
+ * @param color - HSL color string (e.g., 'hsl(500, 50%, 50%)')
  * @param a - Alpha value (0-1)
  * @returns HSLA color string
  * @throws Error if the input is not a valid HSL color
@@ -330,8 +330,10 @@ export const hslToHsla = (color: string, a: number): string => {
     const values = color.match(/^hsl\((\d+),\s*([\d.]+)%,\s*([\d.]+)%\)$/);
 
     if (!values) {
-        throw new Error(`Invalid HSL color: ${color}`);
+        console.error(`Invalid HSL color: ${color}`);
+        return "";
     }
+
 
     const h = parseInt(values[1], 10);
     const s = parseInt(values[2], 10);
