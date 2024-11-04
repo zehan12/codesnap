@@ -7,7 +7,7 @@ interface CodeProps {
 }
 
 import { cn } from "@/lib/utils";
-import { useSettingsContext } from "@/contexts";
+import { useSettingsContext } from "@/providers";
 import { EditorView } from "@codemirror/view";
 import createTheme from "@uiw/codemirror-themes";
 import { hslToHsla as adjustLightness } from "@/utils";

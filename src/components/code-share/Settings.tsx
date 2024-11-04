@@ -1,6 +1,6 @@
 "use client";
 
-import { useSettingsContext } from "@/contexts";
+import { useSettingsContext } from "@/providers";
 import { DragHandleDots2Icon } from "@radix-ui/react-icons";
 import { cn } from "@/lib/utils";
 import { useAnimationControls, useDragControls, motion } from "framer-motion";
@@ -14,11 +14,12 @@ import {
     LanguageDefinition,
     ThemeDefinition,
 } from "@/types";
+import { TODO } from "@/types/custom";
 
 export default function Settings() {
     const [mainDimensions, setMainDimensions] = useState<{
-        height: number;
-        width: number;
+        height: number | TODO;
+        width: number | TODO;
     }>({ height: 0, width: 0 });
 
     const [constraints, setConstraints] = useState<{
@@ -63,7 +64,7 @@ export default function Settings() {
             }, 500);
         };
 
-        setMainDimensions({ height: main!.offsetHeight, width: main!.offsetWidth });
+        setMainDimensions({ height: main?.offsetHeight, width: main?.offsetWidth });
 
         window.addEventListener("resize", handleResize);
 
