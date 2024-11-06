@@ -16,9 +16,19 @@ import ReactCodeMirror from "@uiw/react-codemirror";
 
 export const Code: FC<CodeProps> = () => {
     const [selectedLanguage, setSelectedLanguage] = useState<any>(null);
-    const [code, setCode] = useState<string>(`interface Props {
-    item1: "test"
-  }`);
+    const [code, setCode] = useState<string>(`const app = next();
+    const root = document.getElementById("root");
+    next.init({
+        root,
+        app
+    })
+
+    next.render({
+        hydration: true,
+        srr: true,
+        resumability: true,
+        cache: true,
+    })`);
 
     const { language, theme, fontStyle, lineNumbers, padding } =
         useSettingsContext();
