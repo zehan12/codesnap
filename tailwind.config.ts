@@ -65,6 +65,7 @@ const config: Config = {
     plugins: [
         require("tailwindcss-animate"),
         require("@headlessui/tailwindcss"),
+        require('tailwindcss-signals'),
     ],
 };
 export default config;
