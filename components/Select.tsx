@@ -17,7 +17,7 @@ interface SelectProps<T> {
   options: T[];
 }
 
-function ThemeBubble({ color }: { color: string }) {
+function ThemeBubble({ color }: { color: any }) {
   return (
     <span
       className={clsx("block h-4 w-4 rounded-full bg-gradient-to-br", color)}
@@ -48,7 +48,7 @@ export default memo(function Select<
       case "language":
         return <span>{(initialValue as LanguageDefinition).label}</span>;
       case "theme":
-        return <ThemeBubble color={(initialValue as ThemeDefinition).class} />;
+        return <ThemeBubble color={(initialValue as ThemeDefinition)?.class} />;
       case "font":
         return (
           <span

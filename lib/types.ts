@@ -8,9 +8,10 @@ export type ChoiceDefinition = {
 };
 
 export type ThemeDefinition = {
+  [key: string]: string | string[];
   id: string;
   label: string;
-  baseColors: string[];
+  baseColors: string[] | any;
 };
 
 export type LanguageDefinition = {
